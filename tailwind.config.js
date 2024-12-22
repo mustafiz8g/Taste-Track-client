@@ -7,7 +7,11 @@ export default {
     ],
   
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        banner :"url('/src/assets/banner2.png')"
+      }
+    },
   },
   plugins: [
     require('daisyui'),

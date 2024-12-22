@@ -1,29 +1,53 @@
 
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Lottie from "lottie-react";
 import registerLottie from '../../src/assets/register.json'
 import useAuth from "../hooks/useAuth";
 import SocialLogin from "./shared/SocialLogin";
+import { MdRemoveRedEye } from "react-icons/md";
+import { FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import Swal from "sweetalert2";
 
 const Register = () => {
-    const { createUser } = useAuth();
+    const { createUser, updateUser, setUser } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || '/';
+
+    const [showPassword, setShowPassword] = useState(false);
+
 
    const handleRegister = e => {
     e.preventDefault();
     const form = e.target;
-    const photo = form.photo.value;
     const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(photo,name,email, password)
 
-    //password validation
-    //show password validation error
+    // password validation
+    // show password validation error
     createUser(email, password)
     .then(result => {
-        console.log('Register', result.user)
+        // console.log('Register', result.user)
+        const user = result.user;
+        setUser(user)
+        updateUser({
+            displayName: name,
+            photoURL : photo
+        })
+        e.target.reset();
+        if(result.user){
+            Swal.fire({
+                title: "Register Successful",
+                icon: "success"
+            });
+        }
+        navigate(from)
     })
     .catch(err => {
         console.log(err.message)
@@ -37,9 +61,9 @@ const Register = () => {
    
     
     return (
-        <div className="flex ">
-           <div className="flex-1"> 
-            <form onSubmit={handleRegister} >
+        <div className="w-10/12 mx-auto flex justify-center flex-col-reverse items-center md:flex-row ">
+          
+            <form onSubmit={handleRegister} className="w-[340px]" >
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text font-semibold">Name</span>
@@ -79,18 +103,19 @@ const Register = () => {
                     </label>
                     <input
                         name="password"
-                        type= 'password'
+                        type={showPassword ? 'text' : 'password'}                       
                         placeholder="password"
                         className="input input-bordered"
                         required
-                        // autoComplete="current-password"
-                        
                     />
+                      <div
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="relative left-[300px] bottom-8">
+                        {
+                            showPassword ? <MdRemoveRedEye /> : <FaEyeSlash />
+                        }
+                    </div>
 
-
-                   
-
-                  
 
                 </div>
                 <div className="form-control">
@@ -109,18 +134,19 @@ const Register = () => {
                 </div>
 
                 <div>
-                    <p className="text-[14px] mt-3">Already Customer ? <Link to="/SignIn"><button className="link link-info font-bold">SignIn</button>
+                    <p className="text-[14px] mt-3">Already Customer ? <Link to="/login"><button className="link link-info font-bold">Login</button>
                     </Link></p>
                 </div>
+                <div className="divider"><small>OR</small></div>
                 <SocialLogin></SocialLogin>
                 
 
             </form>
             
-            </div>
-           <div className="flex-1">
-            <Lottie animationData={registerLottie}></Lottie>
-             
+           
+           <div className="">
+            <Lottie  className="w-[340px]" animationData={registerLottie}></Lottie>
+             <ToastContainer></ToastContainer>
            </div>
         </div>
     );

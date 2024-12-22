@@ -1,86 +1,180 @@
+
 import Lottie from "lottie-react";
 import signInLottie from '../../src/assets/login.json'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import SocialLogin from "./shared/SocialLogin";
+import { useRef, useState } from "react";
+import { MdRemoveRedEye } from "react-icons/md";
+import { FaEyeSlash } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const { loginUser } = useAuth();
+    const { loginUser, forgetPassword } = useAuth();
+
+    const [showPassword, setShowPassword] = useState(false);
+    const [successSMS, setSuccessSMS] = useState();
+    const [error, setError] = useState();
+
+
+
+    const emailRef = useRef();
+
     const location = useLocation();
     const navigate = useNavigate()
     const from = location.state || '/';
-    const handleSignIn = e => {
+    const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
-    
+        // console.log(email, password)
+
+
+        setSuccessSMS('')
+        setError('')
+
         //password validation
         //show password validation error
-    loginUser(email, password)
-    .then(result => {
-        console.log('sign IN :', result.user)
+        loginUser(email, password)
+            .then(result => {
+                console.log('sign IN :', result.user)
+                if (result.user) {
+                    Swal.fire({
+                        title: "Login Successful",
+                        icon: "success"
+                    });
+                }
+                navigate(from)
 
-        navigate(from)
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
 
-    })
-    .catch( err => {
-        console.log(err.message)
-    })
-    
-       }
+    }
+
+    const handleForgetPassword = () => {
+
+        const email = emailRef.current.value;
+        if (!email) {
+            toast('Please Provide a valid email')
+            return;
+        }
+        else {
+            forgetPassword(email)
+                .then(() => {
+                    toast('Password Reset Email Sent, Please check you email')
+                })
+
+
+        }
+
+    }
+
+
+    const handlePassword = ev => {
+        ev.preventDefault();
+        const newPassword = ev.target.value;
+        setError('')
+        setSuccessSMS('')
+        //password validation 
+
+        if (newPassword.length <= 6) {
+            setError('password must be 6 digit or bigger')
+
+        }
+        const passwordRegexU = /^(?=.*[A-Z]).+$/
+        const passwordRegexL = /^(?=.*[a-z]).+$/
+        if (!passwordRegexU.test(newPassword)) {
+            setError('atleast one uppercase')
+
+        }
+        if (!passwordRegexL.test(newPassword)) {
+            setError('atleast one lowercse')
+
+        }
+        if (newPassword.length > 6 && passwordRegexU.test(newPassword) && passwordRegexL.test(newPassword)) {
+            setSuccessSMS('strong')
+        }
+
+
+    }
+
+
     return (
-        <div className="flex ">
-        <div className="flex-1"> 
-         <form onSubmit={handleSignIn} >
-             <div className="form-control">
-                 <label className="label">
-                     <span className="label-text font-semibold">Email</span>
-                 </label>
-                 <input
-                     name="email"
-                     type="email"
-                     placeholder="email"
-                     className="input input-bordered"
-                     required />
-             </div>
-             <div className="form-control">
-                 <label className="label">
-                     <span className="label-text font-semibold">Password</span>
-                 </label>
-                 <input
-                     name="password"
-                     type= 'password'
-                     placeholder="password"
-                     className="input input-bordered"
-                     required
-                     // autoComplete="current-password"
-                     
-                 />
+        <div className="w-10/12 mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
+
+            <form onSubmit={handleLogin} className="w-[340px]">
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text font-semibold">Email</span>
+                    </label>
+                    <input
+                        name="email"
+                        type="email"
+                        ref={emailRef}
+                        placeholder="email"
+                        className="input input-bordered"
+                        required />
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text font-semibold">Password</span>
+                    </label>
+                    <input
+                        name="password"
+                        type={showPassword ? 'text' : 'password'}
+                        onChange={handlePassword}
+
+                        placeholder="password"
+                        className="input input-bordered"
+                        required
+                    // autoComplete="current-password"
+
+                    />
+                    <div
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="relative w-6 left-[300px] bottom-8">
+                        {
+                            showPassword ? <MdRemoveRedEye /> : <FaEyeSlash />
+                        }
+                    </div>
+                    <div className="form-control absolute top-64">
+                        <p className="text-sm text-success">{successSMS}</p>
+                        <p className="text-sm text-error">{error}</p>
+
+                    </div>
+                    <label onClick={handleForgetPassword} className="label">
+                        <a className="label-text-alt link link-hover">Forgot password?</a>
+                    </label>
+
+                </div>
+
+                <div className="form-control mt-4">
+                    <button className="btn btn-primary  text-[16px]">Login</button>
+                </div>
+
+                <div>
+                    <p className="text-[14px] mt-3">dont have Account ? <Link to="/register"><button className="link link-info font-bold">Register</button>
+                    </Link></p>
+                </div>
+                <div className="divider"><small>OR</small></div>
+
+                <SocialLogin></SocialLogin>
 
 
-             </div>
-            <div className="form-control mt-4">
-                 <button className="btn btn-primary  text-[16px]">Login</button>
-             </div>
+            </form>
 
-             <div>
-                 <p className="text-[14px] mt-3">dont have Account ? <Link to="/register"><button className="link link-info font-bold">Register</button>
-                 </Link></p>
-             </div>
-             <SocialLogin></SocialLogin>
-             
 
-         </form>
-         
-         </div>
-        <div className="flex-1">
-         <Lottie animationData={signInLottie}></Lottie>
-          
+            <div className=" ">
+                <Lottie className="w-[340px]" animationData={signInLottie}></Lottie>
+                <ToastContainer />
+
+            </div>
         </div>
-     </div>
     );
 };
 
-export default Login;
+export default Login;     
