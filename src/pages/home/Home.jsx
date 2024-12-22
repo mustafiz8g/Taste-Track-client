@@ -1,6 +1,7 @@
 import Slider from "./Slider/Slider";
 import Banner from "./Banner";
 import TitleSubTitle from "../shared/TitleSubTitle";
+import Booking from "./Booking";
 
 
 const Home = () => {
@@ -10,8 +11,8 @@ const Home = () => {
             <TitleSubTitle 
               title={'Lottery'} 
               subTitle = {'For the month of victory of our motherland'}></TitleSubTitle>
-
             <Slider></Slider>
+            <Booking></Booking>
         </div>
     );
 };

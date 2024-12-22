@@ -2,6 +2,7 @@
 import { FaBars } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import './navBar.css'
 
 const Navbar = () => {
     const { user, logOutUser } = useAuth();
@@ -39,7 +40,7 @@ const Navbar = () => {
    
 
     return (
-        <div className="z-50 sticky top-0 bg-white opacity-60">
+        <div className="z-50 sticky top-0 navBar">
             <div className="w-11/12 mx-auto navbar flex justify-between ">
 
                 <div className="first">
