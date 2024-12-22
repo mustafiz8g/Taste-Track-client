@@ -1,7 +1,14 @@
 
-import { useKeenSlider } from "keen-slider/react"
+import f1 from '../../../assets/1.png'
+import f2 from '../../../assets/2.png'
+import f3 from '../../../assets/3.png'
+import f4 from '../../../assets/4.png'
+import f6 from '../../../assets/6.png'
+
+import { useKeenSlider } from "keen-slider/react" 
 import "keen-slider/keen-slider.min.css"
 import "./Slider.css"
+
 const animation = { duration: 7000, easing: (t) => t }
 const Slider = () => {
     const carousel = (slider) => {
@@ -42,17 +49,18 @@ const Slider = () => {
       )
       
     return (
-        <div className="w-11/12 mx-auto flex justify-center">
+        <div className="w-11/12 mx-auto flex justify-center  pb-16 ">
               <div className="scene">
         <div className="carousel keen-slider" ref={sliderRef}>
-          <div className="carousel__cell number-slide1 ">1</div>
-          <div className="carousel__cell number-slide2">2</div>
-          <div className="carousel__cell number-slide3">3</div>
-          <div className="carousel__cell number-slide4">4</div>
-          <div className="carousel__cell number-slide5">5</div>
-          <div className="carousel__cell number-slide6">6</div>
+          <div className="carousel__cell number-slide1 "><img className='w-full h-full' src={f1} alt="" /></div>
+          <div className="carousel__cell number-slide2"><img className='w-full h-full' src={f2} alt="" /></div>
+          <div className="carousel__cell number-slide3"><img className='w-full h-full' src={f3} alt="" /></div>
+          <div className="carousel__cell number-slide4">EMPTY</div>
+          <div className="carousel__cell number-slide5"><img className='w-full h-full' src={f4} alt="" /></div>
+          <div className="carousel__cell number-slide6"><img className='w-full h-full' src={f6} alt="" /></div>
         </div>
       </div>
+      
         </div>
     );
 };

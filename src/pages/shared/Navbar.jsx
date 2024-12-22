@@ -39,7 +39,7 @@ const Navbar = () => {
    
 
     return (
-        <div className="z-50 sticky top-0">
+        <div className="z-50 sticky top-0 bg-white opacity-60">
             <div className="w-11/12 mx-auto navbar flex justify-between ">
 
                 <div className="first">
@@ -54,7 +54,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-3xl">TASTE <span className="text-red-600 font-bold">TRACK</span></Link>
+                    <Link to='/' className="btn btn-ghost text-3xl font-bold">TASTE <span className="text-red-600 font-bold">TRACK</span></Link>
                 </div>
                 <div>
                     <div className="second hidden md:flex">

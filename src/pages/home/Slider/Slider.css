@@ -92,7 +92,9 @@
   }
   .carousel__cell {
     position: absolute;
-    width: 240px;
+    padding: 4px;
+    border-radius: 10px;
+    width: 260px;
     left: 10px;
     height: 200px;
     border: 1px solid rgba(0, 0, 0, 0.3);
