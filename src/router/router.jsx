@@ -63,8 +63,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
               
             },
-
-            
+          
             {
                 path: '/login',
                 element: <Login></Login>
