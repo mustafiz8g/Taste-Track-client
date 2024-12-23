@@ -188,7 +188,7 @@ const AddFoods = () => {
             foodName: form.foodName.value,
             foodImage: form.foodImage.value,
             foodCategory: form.foodCategory.value,
-            quantity: parseInt(form.quantity.value),
+            quantity: parseInt(form.quantity.value,10),
             price: parseFloat(form.price.value),
             addedByName: form.addedByName.value,
             addedByEmail: form.addedByEmail.value,
@@ -282,7 +282,7 @@ const AddFoods = () => {
                 {/* Quantity */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Quantity</span>
+                        <span className="label-text text-gray-700 font-semibold">Stock</span>
                     </label>
                     <input
                         name="quantity"
@@ -290,6 +290,7 @@ const AddFoods = () => {
                         placeholder="Enter Quantity"
                         className="input input-bordered w-full glass"
                         min="1"
+                        
                         required
                     />
                 </div>

@@ -24,7 +24,7 @@ const SocialLogin = () => {
 
             })
             .catch(err => {
-                console.log('Error', err)
+                console.log('Error', err.message)
             })
     }
    

@@ -8,6 +8,8 @@ const PurchaseForm = () => {
     const { id } = useParams();
     const [food, setFood] = useState([])
     const navigate = useNavigate();
+    const [conditon , setCondition] = useState([])
+    const [newPrice , setNewPrice] = useState([])
 
     
 
@@ -30,16 +32,27 @@ const PurchaseForm = () => {
         })
     } ,[id])
 
+    const handleQuantity = e => {
+        const newQunatity = parseInt(e.target.value,10);
+        const newPrice = newQunatity * food.price ;
+        setNewPrice(newPrice)
+
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
+        const purchaseQuantity = parseInt(form.purchaseQuantity.value,10)
+        if (purchaseQuantity > food.quantity){
+            return setCondition(`We have ${food.quantity} ${food.foodName} in stock`)
+        }
 
         const purchaseFood = {
             food_id: id,
             foodImage: food.foodImage,
             foodName: form.foodName.value,
-            price: form.price.value,
-            quantity: form.quantity.value,
+            purchaseQuantity,
+            price: parseFloat(form.price.value),
             Owner:food.addedByName,
             buyerName: user.displayName,
             buyerEmail: user.email,
@@ -69,6 +82,7 @@ const PurchaseForm = () => {
 
     };
 
+
     return (
         <div className="container mx-auto p-4 md:p-8">
             <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
@@ -96,7 +110,7 @@ const PurchaseForm = () => {
                         <input
                             type="number"
                             name="price"
-                            value={food.price}
+                            value={newPrice}
                             required
                             className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                         />
@@ -105,15 +119,20 @@ const PurchaseForm = () => {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-600">
-                            Quantity
+                           Purchase Quantity (between 1 and 20)
                         </label>
                         <input
                             type="number"
-                            name="quantity"
+                            name="purchaseQuantity"
                             required
+                            min={1}
+                            max={20}
+                            onChange={handleQuantity}
+                            
                             className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                         />
                     </div>
+                    <p>{conditon}</p>
 
 
                     <div>

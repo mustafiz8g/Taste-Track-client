@@ -22,22 +22,13 @@ const AllFoodsCard = ({ food }) => {
   
           {/* Description */}
           <p className="text-gray-600 text-center text-sm mt-2">
-            Available Quantity: {quantity}
+            Stock : {quantity}
           </p>
   
           {/* Price */}
           <p className="text-center text-orange-500 text-lg font-semibold mt-4">${price}</p>
   
-          {/* Rating (Placeholder) */}
-          <div className="flex justify-center items-center mt-2">
-            <div className="flex space-x-1 text-yellow-400">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-              <i className="far fa-star"></i>
-            </div>
-          </div>
+       
         </div>
   
         {/* Details Button */}

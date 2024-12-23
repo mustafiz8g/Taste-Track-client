@@ -58,9 +58,14 @@ const Details = () => {
                         </div>
                         <div className="flex flex-col">
                             <h3 className="text-sm text-gray-500 font-semibold uppercase">
-                                Quantity
+                                Available Quantity
                             </h3>
-                            <p className="text-gray-800">{quantity}</p>
+                            <p className="text-gray-800">{
+                                quantity < 1
+                                    ?
+                                    <p className="text-error">item is not available right now</p>
+                                    : quantity
+                            }</p>
                         </div>
                         <div className="flex flex-col">
                             <h3 className="text-sm text-gray-500 font-semibold uppercase">
@@ -85,12 +90,25 @@ const Details = () => {
 
                 {/* Buttons */}
                 <div className="flex  flex-col text-center sm:flex-row gap-4 p-6 bg-gray-100 border-t">
-                    <Link className="flex-1 sm:w-auto bg-gradient-to-r from-green-400 to-teal-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" to={`/foodPurchase/${_id}`}>
+                    <Link
+                        className={`
+                       flex-1 sm:w-auto 
+                       ${quantity < 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' :                       'bg-gradient-to-r from-green-400 to-teal-500 text-white                       hover:shadow-lg'} 
+                       font-semibold px-6 py-3 rounded-lg shadow-md transition-shadow                       duration-300
+                     `}
+                        to={quantity < 1 ? '#' : `/foodPurchase/${_id}`}
+
+                    >
                         Purchase
                     </Link>
                     <button className="flex-1 w-full sm:w-auto border border-orange-500 text-orange-500 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-orange-500 hover:text-white hover:shadow-lg transition-shadow duration-300">
                         Add to Cart
                     </button>
+
+
+
+
+
                 </div>
             </div>
         </div>

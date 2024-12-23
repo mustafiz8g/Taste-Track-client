@@ -18,7 +18,11 @@ const MyOrderTable = ({purchase,index }) => {
             </div>
             <div>
               <div className="font-bold"> {purchase.foodName}</div>
-              <div className="text-sm text-orange-600 font-bold opacity-50">${purchase.price}</div>
+            <div className="flex gap-3 ">
+            <div className="text-sm text-orange-600 font-bold opacity-50">${purchase.price}</div>
+            <div><span className="text-[12px]">Quantity:</span> <span className="font-bold text-[12px] text-green-600">{purchase.purchaseQuantity}</span></div>
+            </div>
+              
             </div>
           </div>
         </td>
