@@ -196,7 +196,7 @@ const AddFoods = () => {
             description: form.description.value,
         };
 
-        console.log(foodData);
+        // console.log(foodData);
 
     //
         fetch("http://localhost:3800/addFoods", {
@@ -208,7 +208,7 @@ const AddFoods = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if (data.insertedId) {
                 Swal.fire({
                     title: "Food has been added",

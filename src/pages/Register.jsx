@@ -19,6 +19,8 @@ const Register = () => {
     const from = location.state || '/';
 
     const [showPassword, setShowPassword] = useState(false);
+    const [successSMS, setSuccessSMS] = useState('');
+    const [error, setError] = useState('');
 
 
    const handleRegister = e => {
@@ -28,9 +30,34 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const terms = form.terms.checked;
 
     // password validation
     // show password validation error
+
+    setSuccessSMS('')
+    setError('')
+    if (!terms) {
+        setError('Please accept our terms & conditon');
+        return;
+    }
+    if (password.length < 6) {
+        setError('password should be 6 cahharacters or longer')
+        return;
+    }
+    const passwordRegexU = /^(?=.*[A-Z]).+$/
+    const passwordRegexL = /^(?=.*[a-z]).+$/
+
+    if (!passwordRegexU.test(password)) {
+        setError('At least one Caracter Uppercase')
+        return;
+    }
+    if (!passwordRegexL.test(password)) {
+        setError('At least one Caracter Lowercase')
+        return;
+    }
+
+
     createUser(email, password)
     .then(result => {
         // console.log('Register', result.user)
@@ -50,14 +77,47 @@ const Register = () => {
         navigate(from)
     })
     .catch(err => {
-        console.log(err.message)
+        // console.log(err.message)
+        setError(err.message)
     })
 
 
    }
 
+
+
+
+
+
     // due password validation .................................
 
+    const handlePassword = ev => {
+        ev.preventDefault();
+        const newPassword = ev.target.value;
+        setError('')
+        setSuccessSMS('')
+        //password validation 
+
+        if (newPassword.length <= 6) {
+            setError('password should be 6 cahharacters or longer')
+
+        }
+        const passwordRegexU = /^(?=.*[A-Z]).+$/
+        const passwordRegexL = /^(?=.*[a-z]).+$/
+        if (!passwordRegexU.test(newPassword)) {
+            setError('At least one Caracter Uppercase')
+
+        }
+        if (!passwordRegexL.test(newPassword)) {
+            setError('At least one Caracter Lowercase')
+
+        }
+        if (newPassword.length > 6 && passwordRegexU.test(newPassword) && passwordRegexL.test(newPassword)) {
+            setSuccessSMS('strong')
+        }
+
+
+    }
    
     
     return (
@@ -104,6 +164,7 @@ const Register = () => {
                     </label>
                     <input
                         name="password"
+                        onChange={handlePassword}
                         type={showPassword ? 'text' : 'password'}                       
                         placeholder="password"
                         className="input input-bordered"
@@ -115,6 +176,11 @@ const Register = () => {
                         {
                             showPassword ? <MdRemoveRedEye /> : <FaEyeSlash />
                         }
+                    </div>
+                    <div className="form-control ">
+                        <p className="text-sm text-success">{successSMS}</p>
+                        <p className="text-sm text-error">{error}</p>
+
                     </div>
 
 

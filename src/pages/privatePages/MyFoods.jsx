@@ -19,7 +19,7 @@ const MyFoods = () => {
                 setMyFoods(data)
             })
         } ,[user.email])
-        console.log(myFoods)
+        // console.log(myFoods)
 
   
 

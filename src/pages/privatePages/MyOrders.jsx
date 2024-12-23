@@ -17,14 +17,14 @@ const MyOrders = () => {
                 setPurchase(data)
             })
         } ,[user.email])
-        console.log(purchases)
+        // console.log(purchases)
 
 
 
         
     return (
         <div>
-            <p className="text-center"> Total : {purchases.length}</p>
+            <p className="text-center"> Total Order : {purchases.length}</p>
 
             <div className="overflow-x-auto">
   <table className="table">
@@ -36,8 +36,8 @@ const MyOrders = () => {
         </th>
         <th>Details</th>
         
-        <th>Owner</th>
-        <th>Date </th>
+        <th>Seller</th>
+        <th>Purchase Date </th>
         <th>Action</th>
       </tr>
     </thead>

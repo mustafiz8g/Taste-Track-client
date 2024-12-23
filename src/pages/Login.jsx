@@ -14,8 +14,8 @@ const Login = () => {
     const { loginUser, forgetPassword } = useAuth();
 
     const [showPassword, setShowPassword] = useState(false);
-    const [successSMS, setSuccessSMS] = useState();
-    const [error, setError] = useState();
+    const [successSMS, setSuccessSMS] = useState('');
+    const [error, setError] = useState('');
 
 
 
@@ -34,12 +34,27 @@ const Login = () => {
 
         setSuccessSMS('')
         setError('')
+        if (password.length < 6) {
+            setError('password should be 6 cahharacters or longer')
+            return;
+        }
+        const passwordRegexU = /^(?=.*[A-Z]).+$/
+        const passwordRegexL = /^(?=.*[a-z]).+$/
+    
+        if (!passwordRegexU.test(password)) {
+            setError('At least one Caracter Uppercase')
+            return;
+        }
+        if (!passwordRegexL.test(password)) {
+            setError('At least one Caracter Lowercase')
+            return;
+        }
 
         //password validation
         //show password validation error
         loginUser(email, password)
             .then(result => {
-                console.log('sign IN :', result.user)
+                // console.log('sign IN :', result.user)
                 if (result.user) {
                     Swal.fire({
                         title: "Login Successful",
@@ -50,7 +65,8 @@ const Login = () => {
 
             })
             .catch(err => {
-                console.log(err.message)
+                // console.log(err.message)
+                setError(err.message)
             })
 
     }
@@ -82,17 +98,17 @@ const Login = () => {
         //password validation 
 
         if (newPassword.length <= 6) {
-            setError('password must be 6 digit or bigger')
+            setError('password should be 6 cahharacters or longer')
 
         }
         const passwordRegexU = /^(?=.*[A-Z]).+$/
         const passwordRegexL = /^(?=.*[a-z]).+$/
         if (!passwordRegexU.test(newPassword)) {
-            setError('atleast one uppercase')
+            setError('At least one Caracter Uppercase')
 
         }
         if (!passwordRegexL.test(newPassword)) {
-            setError('atleast one lowercse')
+            setError('At least one Caracter Lowercase')
 
         }
         if (newPassword.length > 6 && passwordRegexU.test(newPassword) && passwordRegexL.test(newPassword)) {
@@ -142,7 +158,7 @@ const Login = () => {
                             showPassword ? <MdRemoveRedEye /> : <FaEyeSlash />
                         }
                     </div>
-                    <div className="form-control absolute top-60">
+                    <div className="form-control ">
                         <p className="text-sm text-success">{successSMS}</p>
                         <p className="text-sm text-error">{error}</p>
 

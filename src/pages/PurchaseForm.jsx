@@ -41,7 +41,7 @@ const PurchaseForm = () => {
             price: form.price.value,
             quantity: form.quantity.value,
             Owner:food.addedByName,
-            buyerName: user.name,
+            buyerName: user.displayName,
             buyerEmail: user.email,
             buyingDate: currentTime,
         };
@@ -123,7 +123,7 @@ const PurchaseForm = () => {
                         <input
                             type="text"
                             name="buyerName"
-                            value={user.name}
+                            value={user.displayName}
                             readOnly
                             className="w-full mt-1 px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
                         />
