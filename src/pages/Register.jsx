@@ -63,7 +63,8 @@ const Register = () => {
     return (
         <div className="w-10/12 mx-auto flex justify-center flex-col-reverse items-center md:flex-row ">
           
-            <form onSubmit={handleRegister} className="w-[340px]" >
+           <div>
+           <form onSubmit={handleRegister} className="w-[340px]" >
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text font-semibold">Name</span>
@@ -138,10 +139,12 @@ const Register = () => {
                     </Link></p>
                 </div>
                 <div className="divider"><small>OR</small></div>
-                <SocialLogin></SocialLogin>
+          
                 
 
             </form>
+            <SocialLogin></SocialLogin>
+           </div>
             
            
            <div className="">

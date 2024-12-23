@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div className='
         
-         bg-no-repeat  bg-cover h-[760px] bottom-[74px] relative flex flex-col items-center justify-center *:text-white space-y-3 *:text-center' 
+         bg-no-repeat bg-fixed bg-cover h-[760px] bottom-[74px] relative flex flex-col items-center justify-center *:text-white space-y-3 *:text-center' 
         style={{
             backgroundImage: `linear-gradient(
               0deg, rgba(19, 19, 24, 0.8), rgba(19, 19, 24, 0) 100%

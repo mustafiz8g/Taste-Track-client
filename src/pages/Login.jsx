@@ -106,6 +106,7 @@ const Login = () => {
     return (
         <div className="w-10/12 mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
 
+            <div>
             <form onSubmit={handleLogin} className="w-[340px]">
                 <div className="form-control">
                     <label className="label">
@@ -162,10 +163,12 @@ const Login = () => {
                 </div>
                 <div className="divider"><small>OR</small></div>
 
-                <SocialLogin></SocialLogin>
+                
 
 
             </form>
+            <SocialLogin></SocialLogin>
+            </div>
 
 
             <div className=" ">

@@ -8,7 +8,7 @@ const Navbar = () => {
     const { user, logOutUser } = useAuth();
     const navigate = useNavigate();
     
-    const defaultPhoto = "https://i.ibb.co.com/TTNz5Yp/Screenshot-2024-12-22-103839.png"
+    // const defaultPhoto = "https://i.ibb.co.com/TTNz5Yp/Screenshot-2024-12-22-103839.png"
 
 
 
@@ -21,7 +21,6 @@ const Navbar = () => {
      const handleLogOut = () => {
         logOutUser()
             .then(() => {
-                console.log('logout Successful')
                 navigate('/')
 
             })
