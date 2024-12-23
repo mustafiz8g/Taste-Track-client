@@ -1,8 +1,9 @@
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Details = () => {
     const {
+        _id,
         foodName,
         foodImage,
         foodCategory,
@@ -83,11 +84,11 @@ const Details = () => {
                 </div>
 
                 {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 p-6 bg-gray-100 border-t">
-                    <button className="w-full sm:w-auto bg-gradient-to-r from-green-400 to-teal-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div className="flex  flex-col text-center sm:flex-row gap-4 p-6 bg-gray-100 border-t">
+                    <Link className="flex-1 sm:w-auto bg-gradient-to-r from-green-400 to-teal-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" to={`/foodPurchase/${_id}`}>
                         Purchase
-                    </button>
-                    <button className="w-full sm:w-auto border border-orange-500 text-orange-500 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-orange-500 hover:text-white hover:shadow-lg transition-shadow duration-300">
+                    </Link>
+                    <button className="flex-1 w-full sm:w-auto border border-orange-500 text-orange-500 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-orange-500 hover:text-white hover:shadow-lg transition-shadow duration-300">
                         Add to Cart
                     </button>
                 </div>

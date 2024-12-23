@@ -142,7 +142,7 @@ const Login = () => {
                             showPassword ? <MdRemoveRedEye /> : <FaEyeSlash />
                         }
                     </div>
-                    <div className="form-control absolute top-64">
+                    <div className="form-control absolute top-60">
                         <p className="text-sm text-success">{successSMS}</p>
                         <p className="text-sm text-error">{error}</p>
 

@@ -11,6 +11,7 @@ import AddFoods from "../pages/privatePages/AddFoods";
 import MyOrders from "../pages/privatePages/MyOrders";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../pages/Details";
+import PurchaseForm from "../pages/PurchaseForm";
 
 
 
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
             }
             ,
             {
+                path: '/foodPurchase/:id',
+                element: <PrivateRoute><PurchaseForm></PurchaseForm></PrivateRoute>,
+               
+            }
+            ,
+            {
                 path: '/gallery',
                 element: <Gallery></Gallery>
             },
@@ -54,6 +61,7 @@ const router = createBrowserRouter([
             {
                 path: '/myOrders',
                 element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
+              
             },
 
             
