@@ -24,10 +24,10 @@ const AddFoods = () => {
             totalSold: parseInt(0),
         };
 
-        console.log(foodData);
+        // console.log(foodData);
 
     //
-        fetch("http://localhost:3800/addFoods", {
+        fetch("https://taste-track-server.vercel.app/addFoods", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -15,7 +15,7 @@ const SocialLogin = () => {
     const handler = () => {
         loginWithGoogle()
             .then(result => {
-                console.log('Login with socai', result.user)
+                // console.log('Login with socai', result.user)
                 Swal.fire({
                     title: "Login Successful with Google",
                     icon: "success"
@@ -24,7 +24,7 @@ const SocialLogin = () => {
 
             })
             .catch(err => {
-                console.log('Error', err.message)
+                // console.log('Error', err.message)
             })
     }
    

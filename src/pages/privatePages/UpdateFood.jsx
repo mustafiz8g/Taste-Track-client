@@ -40,7 +40,7 @@ const UpdateFood = () => {
         // console.log(foodData);
 
     //
-        fetch(`http://localhost:3800/updateFood/${_id}`, {
+        fetch(`https://taste-track-server.vercel.app/updateFood/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
