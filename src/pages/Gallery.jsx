@@ -19,22 +19,22 @@ const Gallery = () => {
 
 
   // Open the lightbox with the clicked image
-  const handleImageClick = (i) => {
-    setCurrentIndex(i);
+  const handleImageClick = (index) => {
+    setCurrentIndex(index);
     setOpen(true);
   };
 
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-6 text-center">Gallery Section</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {foods.map((food, i) => (
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {foods.map((food, index) => (
           <img
-            key={i}
+            key={index}
             src={food.foodImage}
             alt={food.foodName}
             className="cursor-pointer rounded-lg shadow-md hover:shadow-lg transition duration-300"
-            onClick={() => handleImageClick(i)}
+            onClick={() => handleImageClick(index)}
           />
         ))}
       </div>
@@ -44,7 +44,7 @@ const Gallery = () => {
         open={open}
         close={() => setOpen(false)}
         slides={foods.map((food) => ({ src: food.foodImage }))}
-        i={currentIndex}
+        index={currentIndex}
       />
     </div>
   );

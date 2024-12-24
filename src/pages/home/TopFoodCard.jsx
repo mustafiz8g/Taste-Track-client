@@ -1,16 +1,18 @@
+
+
 import { Link } from "react-router-dom";
 
 
-const AllFoodsCard = ({ food }) => {
+const TopFoodCard = ({ food }) => {
     const {_id, foodName, foodImage, quantity, price } = food;
   
     return (
       <div className="mx-auto bg-white rounded-lg shadow-md overflow-hidden border">      
-        <div className="flex justify-center  h-48">
+        <div className=" flex justify-center ">
           <img
             src={foodImage}
             alt={foodName}
-            className="  h-full"
+            className="  "
           />
         </div>    
         <div className="p-4">
@@ -20,7 +22,7 @@ const AllFoodsCard = ({ food }) => {
           </p>
           <p className="text-center text-orange-500 text-lg font-semibold mt-4">${price}</p>
         </div>
-       <Link to ={`${_id}`}>
+       <Link to ={`allFoods/${_id}`}>
         <div className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 text-center cursor-pointer">
           Details
         </div>
@@ -29,7 +31,7 @@ const AllFoodsCard = ({ food }) => {
     );
   };
   
-  export default AllFoodsCard;
+  export default TopFoodCard;
   
 
 
