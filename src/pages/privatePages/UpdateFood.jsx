@@ -15,7 +15,8 @@ const UpdateFood = () => {
            addedByName,
            addedByEmail,
            foodOrigin,
-           description
+           description,
+           totalSold
      } = useLoaderData();
 
 
@@ -33,6 +34,7 @@ const UpdateFood = () => {
             addedByEmail: form.addedByEmail.value,
             foodOrigin: form.foodOrigin.value,
             description: form.description.value,
+            totalSold
         };
 
         // console.log(foodData);

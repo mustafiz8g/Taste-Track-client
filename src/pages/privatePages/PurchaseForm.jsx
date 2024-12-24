@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 

@@ -21,9 +21,10 @@ const AddFoods = () => {
             addedByEmail: form.addedByEmail.value,
             foodOrigin: form.foodOrigin.value,
             description: form.description.value,
+            totalSold: parseInt(0),
         };
 
-        // console.log(foodData);
+        console.log(foodData);
 
     //
         fetch("http://localhost:3800/addFoods", {
@@ -103,7 +104,23 @@ const AddFoods = () => {
                     </select>
                 </div>
 
-                {/* Quantity */}
+                {/* Extra sold */}
+                {/* <div className="form-control">
+                    <label className="label">
+                        <span className="label-text text-gray-700 font-semibold">Total Sold</span>
+                    </label>
+                    <input
+                        name="totalSold"
+                        type="number"
+                        placeholder="Enter totalSold"
+                        className="input input-bordered w-full glass"
+                        min="0"
+                        readOnly
+                        
+                        required
+                    />
+                </div> */}
+                {/* Quantity  */}
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-gray-700 font-semibold">Stock</span>

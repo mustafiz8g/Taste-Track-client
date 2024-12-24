@@ -5,34 +5,22 @@ const AllFoodsCard = ({ food }) => {
     const {_id, foodName, foodImage, quantity, price } = food;
   
     return (
-      <div className="mx-auto bg-white rounded-lg shadow-md overflow-hidden border">
-        {/* Image */}
-        <div className="relative">
+      <div className="mx-auto bg-white rounded-lg shadow-md overflow-hidden border">      
+        <div className="  h-48">
           <img
             src={foodImage}
             alt={foodName}
-            className="w-full object-cover h-48"
+            className="  h-full"
           />
-        </div>
-  
-        {/* Product Info */}
+        </div>    
         <div className="p-4">
-          {/* Title */}
-          <h2 className="text-lg font-bold text-gray-800 text-center">{foodName}</h2>
-  
-          {/* Description */}
+          <h2 className="text-lg font-bold text-gray-800 text-center">{foodName}</h2>   
           <p className="text-gray-600 text-center text-sm mt-2">
             Stock : {quantity}
           </p>
-  
-          {/* Price */}
           <p className="text-center text-orange-500 text-lg font-semibold mt-4">${price}</p>
-  
-       
         </div>
-  
-        {/* Details Button */}
-        <Link to ={`${_id}`}>
+       <Link to ={`${_id}`}>
         <div className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 text-center cursor-pointer">
           Details
         </div>

@@ -13,6 +13,7 @@ const Details = () => {
         addedByEmail,
         foodOrigin,
         description,
+        totalSold
     } = useLoaderData();
 
     return (
@@ -66,6 +67,12 @@ const Details = () => {
                                     <p className="text-error">item is not available right now</p>
                                     : quantity
                             }</p>
+                        </div>
+                        <div className="flex flex-col">
+                            <h3 className="text-sm text-gray-500 font-semibold uppercase">
+                                Total Sold
+                            </h3>
+                            <p className="text-gray-800">{totalSold}</p>
                         </div>
                         <div className="flex flex-col">
                             <h3 className="text-sm text-gray-500 font-semibold uppercase">
