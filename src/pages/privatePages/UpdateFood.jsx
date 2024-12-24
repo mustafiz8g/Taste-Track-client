@@ -1,17 +1,29 @@
 
-
-
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
-const AddFoods = () => {
-    const { user } = useAuth();
+const UpdateFood = () => {
+    // const { user } = useAuth();
+    const navigate = useNavigate();
+    const {_id,
+           foodName,
+           foodImage,
+           foodCategory,
+           quantity,
+           price,
+           addedByName,
+           addedByEmail,
+           foodOrigin,
+           description
+     } = useLoaderData();
+
 
     const handleAddFood = (e) => {
         e.preventDefault();
 
         const form = e.target;
-        const foodData = {
+        const updatedFood = {
             foodName: form.foodName.value,
             foodImage: form.foodImage.value,
             foodCategory: form.foodCategory.value,
@@ -26,21 +38,25 @@ const AddFoods = () => {
         // console.log(foodData);
 
     //
-        fetch("http://localhost:3800/addFoods", {
-            method: "POST",
+        fetch(`http://localhost:3800/updateFood/${_id}`, {
+            method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(foodData),
+            body: JSON.stringify(updatedFood),
         })
         .then(res => res.json())
         .then(data => {
             // console.log(data)
-            if (data.insertedId) {
+            if (data.modifiedCount) {
                 Swal.fire({
-                    title: "Food has been added",
-                    icon: "success"
-                });
+              
+                    icon: "success",
+                    title: "Updated Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate(-1)
                
             }
         })
@@ -52,8 +68,8 @@ const AddFoods = () => {
             <form onSubmit={handleAddFood} className="max-w-3xl mx-auto shadow-lg rounded-lg p-8 space-y-1">
                 {/* Form Header */}
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold text-gray-800">Add a New Food Item</h2>
-                    <p className="text-gray-600 text-sm mt-1">Fill in the details below to add a new food item to the menu.</p>
+                    <h2 className="text-3xl font-bold text-gray-800">Update Food Item</h2>
+                 
                 </div>
 
                 {/* Food Name */}
@@ -64,6 +80,7 @@ const AddFoods = () => {
                     <input
                         name="foodName"
                         type="text"
+                        defaultValue={foodName}
                         placeholder="Enter Food Name"
                         className="input input-bordered w-full glass"
                         required
@@ -78,6 +95,7 @@ const AddFoods = () => {
                     <input
                         name="foodImage"
                         type="text"
+                        defaultValue={foodImage}
                         placeholder="Enter Food Image URL"
                         className="input input-bordered w-full glass"
                         required
@@ -91,7 +109,7 @@ const AddFoods = () => {
                     </label>
                     <select
                         name="foodCategory"
-                        defaultValue="Pick a Category"
+                        defaultValue={foodCategory}
                         className="select select-bordered w-full glass"
                         required
                     >
@@ -111,6 +129,7 @@ const AddFoods = () => {
                     <input
                         name="quantity"
                         type="number"
+                        defaultValue={quantity}
                         placeholder="Enter Quantity"
                         className="input input-bordered w-full glass"
                         min="1"
@@ -127,6 +146,7 @@ const AddFoods = () => {
                     <input
                         name="price"
                         type="number"
+                        defaultValue={price}
                         placeholder="Enter Price"
                         className="input input-bordered w-full glass"
                         min="0"
@@ -142,7 +162,7 @@ const AddFoods = () => {
                             <input
                                 name="addedByName"
                                 type="text"
-                                defaultValue={user?.displayName}
+                                defaultValue={addedByName}
                                 placeholder="Your Name"
                                 className="input input-bordered glass"
                                 readOnly
@@ -152,7 +172,7 @@ const AddFoods = () => {
                             <input
                                 name="addedByEmail"
                                 type="email"
-                                defaultValue={user?.email}
+                                defaultValue={addedByEmail}
                                 placeholder="Your Email"
                                 className="input input-bordered glass"
                                 readOnly
@@ -169,6 +189,7 @@ const AddFoods = () => {
                     <input
                         name="foodOrigin"
                         type="text"
+                        defaultValue={foodOrigin}
                         placeholder="Enter Country of Origin"
                         className="input input-bordered w-full glass"
                         required
@@ -182,6 +203,7 @@ const AddFoods = () => {
                     </label>
                     <textarea
                         name="description"
+                        defaultValue={description}
                         placeholder="Ingredients, making procedure, etc."
                         className="textarea textarea-bordered w-full glass"
                         required
@@ -191,7 +213,7 @@ const AddFoods = () => {
                 {/* Submit Button */}
                 <div className="form-control mt-6">
                     <button className="btn btn-accent text-lg btn-outline w-full text-lg hover:shadow-lg transition-shadow duration-300 mt-4">
-                        Add Food Item
+                        Update Food Item
                     </button>
                 </div>
             </form>
@@ -199,4 +221,4 @@ const AddFoods = () => {
     );
 };
 
-export default AddFoods;
+export default UpdateFood;

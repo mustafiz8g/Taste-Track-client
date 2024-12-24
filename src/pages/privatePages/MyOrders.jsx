@@ -48,6 +48,9 @@ const MyOrders = () => {
         key={purchase._id}
         purchase = {purchase}
         index = {index}
+        purchases = {purchases}
+        setPurchase = {setPurchase}
+
         
         ></MyOrderTable> )
         
