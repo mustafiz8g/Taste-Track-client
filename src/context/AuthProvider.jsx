@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.init";
+import axios from "axios";
 
 
 const AuthProvider = ({children}) => {
@@ -41,8 +42,31 @@ const AuthProvider = ({children}) => {
      useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            // console.log('state captured', currentUser)
-            setLoading(false)
+            console.log('state captured', currentUser?.email)
+
+            if(currentUser?.email){
+                const user = { email: currentUser.email };
+
+                axios.post('https://taste-track-server.vercel.app/jwt', user , { withCredentials: true })
+                .then(res =>{
+                    
+                    console.log('login ',res.data)
+                    setLoading(false)
+                } )
+            }
+            else{
+                axios.post('https://taste-track-server.vercel.app/logout', {}, {
+                    withCredentials: true
+                })
+                .then(res => {
+                    console.log('logout', res.data)
+                    setLoading(false)
+                })
+            }
+
+                // put it in the right place
+
+          
         })
         return () => {
             unsubscribe();

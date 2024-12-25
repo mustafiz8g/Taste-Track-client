@@ -9,6 +9,7 @@ import { MdRemoveRedEye } from "react-icons/md";
 import { FaEyeSlash } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Login = () => {
     const { loginUser, forgetPassword } = useAuth();
@@ -54,13 +55,22 @@ const Login = () => {
         //show password validation error
         loginUser(email, password)
             .then(result => {
-                // console.log('sign IN :', result.user)
+                // console.log('sign IN :', result.user.email)
                 if (result.user) {
                     Swal.fire({
                         title: "Login Successful",
                         icon: "success"
                     });
                 }
+
+
+                // const user = { email: email }
+                // axios.post('https://taste-track-server.vercel.app/jwt', user, { withCredentials: true })
+                // .then(res => {
+                //     console.log(res.data)
+                // })
+
+
                 navigate(from)
 
             })

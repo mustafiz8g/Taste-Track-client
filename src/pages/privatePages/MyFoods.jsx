@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import MyFoodsTable from "./MyFoodsTable";
+// import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 
@@ -10,15 +12,26 @@ const MyFoods = () => {
   const { user } = useAuth();
   const [myFoods, setMyFoods] = useState([])
 
-
+const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    fetch(`https://taste-track-server.vercel.app/myFoods?email=${user.email}`)
-      .then(res => res.json())
-      .then(data => {
-        setMyFoods(data)
-      })
+    // fetch(`https://taste-track-server.vercel.app/myFoods?email=${user.email}`)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     setMyFoods(data)
+    //   })
+
+    // axios.get(`https://taste-track-server.vercel.app/myFoods?email=${user.email}`,{
+    //   withCredentials: true
+    // })
+    // .then(res => setMyFoods(res.data))
+
+  axiosSecure.get(`/myFoods?email=${user.email}`)
+  .then(res => setMyFoods(res.data))
+
+
   }, [user.email])
+
   // console.log(myFoods)
 
 
