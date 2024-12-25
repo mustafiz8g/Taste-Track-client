@@ -15,13 +15,13 @@ const MyFoods = () => {
 const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    // fetch(`http://localhost:3800/myFoods?email=${user.email}`)
+    // fetch(`https://taste-track-server.vercel.app/myFoods?email=${user.email}`)
     //   .then(res => res.json())
     //   .then(data => {
     //     setMyFoods(data)
     //   })
 
-    // axios.get(`http://localhost:3800/myFoods?email=${user.email}`,{
+    // axios.get(`https://taste-track-server.vercel.app/myFoods?email=${user.email}`,{
     //   withCredentials: true
     // })
     // .then(res => setMyFoods(res.data))

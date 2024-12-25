@@ -25,7 +25,7 @@ const PurchaseForm = () => {
 
     //
     useEffect( () => {
-        fetch(`http://localhost:3800/allFoods/${id}`)
+        fetch(`https://taste-track-server.vercel.app/allFoods/${id}`)
         .then(res => res.json())
         .then(data => {
             setFood(data)
@@ -59,7 +59,7 @@ const PurchaseForm = () => {
             buyingDate: currentTime,
         };
 
-        fetch('http://localhost:3800/purchaseFoods', {
+        fetch('https://taste-track-server.vercel.app/purchaseFoods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

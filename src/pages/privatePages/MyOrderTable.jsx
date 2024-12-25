@@ -13,7 +13,7 @@ const MyOrderTable = ({purchase,index , purchases, setPurchase }) => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3800/myOrders/${_id}`, {
+        fetch(`https://taste-track-server.vercel.app/myOrders/${_id}`, {
           method: "DELETE"
         })
           .then((res) => res.json())

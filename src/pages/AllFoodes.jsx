@@ -18,7 +18,7 @@ const AllFoodes = () => {
             }
 
                 const response = await fetch(
-                    `http://localhost:3800/searchFoods?name=${searchQuery}`
+                    `https://taste-track-server.vercel.app/searchFoods?name=${searchQuery}`
                 );
                 if (response.ok) {
                     const data = await response.json();

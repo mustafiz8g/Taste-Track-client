@@ -27,7 +27,7 @@ const AddFoods = () => {
         // console.log(foodData);
 
     //
-        fetch("http://localhost:3800/addFoods", {
+        fetch("https://taste-track-server.vercel.app/addFoods", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
