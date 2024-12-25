@@ -8,7 +8,7 @@ const Gallery = () => {
   const [foods, setFoods] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect( () => {
-    fetch('https://taste-track-server.vercel.app/allFoods')
+    fetch('http://localhost:3800/allFoods')
     .then(res => res.json())
     .then(data => {
         setFoods(data)

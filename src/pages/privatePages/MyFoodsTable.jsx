@@ -15,7 +15,7 @@ const MyFoodsTable = ({index, myFood, myFoods, setMyFoods}) => {
           confirmButtonText: "Yes, delete it!"
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`https://taste-track-server.vercel.app/myFoods/${_id}`, {
+            fetch(`http://localhost:3800/myFoods/${_id}`, {
               method: "DELETE"
             })
               .then((res) => res.json())

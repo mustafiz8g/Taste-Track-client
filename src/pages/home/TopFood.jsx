@@ -9,7 +9,7 @@ const TopFood = () => {
     const [foods, setFoods] = useState([])
 
     useEffect(() => {
-        fetch('https://taste-track-server.vercel.app/topFoods')
+        fetch('http://localhost:3800/topFoods')
             .then(res => res.json())
             .then(data => {
                 setFoods(data)
