@@ -18,7 +18,7 @@ const AllFoodes = () => {
             }
 
                 const response = await fetch(
-                    `https://taste-track-server.vercel.app/searchFoods?name=${searchQuery}`
+                    `http://localhost:3800/searchFoods?name=${searchQuery}`
                 );
                 if (response.ok) {
                     const data = await response.json();
@@ -35,11 +35,13 @@ const AllFoodes = () => {
 
     return (
         <div className="relative">
-            <TitleSubTitle
+           <div className="w-10/12 mx-auto">
+           <TitleSubTitle
                 title="Explore All Items"
                 subTitle="Explore our diverse collection of delicious foods! From appetizers to desserts, discover flavorful dishes, fresh ingredients, and irresistible tastes. Perfect for every craving—browse now and satisfy your hunger!"
             />
-            <div className=" flex justify-end w-11/12 sticky top-16 z-50">
+           </div>
+            <div className=" flex justify-end w-10/12 mx-auto sticky top-16 z-50">
                 <label className="input input-bordered flex items-center gap-2">
                     <input 
                     className=" "

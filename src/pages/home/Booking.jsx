@@ -15,7 +15,7 @@ const Booking = () => {
             <div className=" flex items-center justify-center px-4">
       <div className=" pb-20  max-w-4xl rounded-md shadow-md">
 
-            <TitleSubTitle title={"Pre-Booking"} subTitle={"COME AND ENJOY THE HOSPITALITY & FOOD AT TASTETRACK"}></TitleSubTitle>
+            <TitleSubTitle title={"MAKE A RESERVATION"} subTitle={"COME AND ENJOY THE HOSPITALITY & FOOD AT TASTETRACK"}></TitleSubTitle>
 
         <form className="border p-10 rounded-lg ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">

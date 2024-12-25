@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import MyOrderTable from "./MyOrderTable";
+import TitleSubTitle from "../shared/TitleSubTitle";
+import AllFoodes from "../AllFoodes";
 
 
 
@@ -11,7 +13,7 @@ const MyOrders = () => {
 
 
       useEffect( () => {
-            fetch(`https://taste-track-server.vercel.app/myOrders?email=${user.email}`)
+            fetch(`http://localhost:3800/myOrders?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setPurchase(data)
@@ -23,8 +25,8 @@ const MyOrders = () => {
 
         
     return (
-        <div>
-            <p className="text-center"> Total Order : {purchases.length}</p>
+        <div className="w-10/12 mx-auto">
+           <TitleSubTitle title={`my all purchased item (${purchases.length})`}></TitleSubTitle>
 
             <div className="overflow-x-auto">
   <table className="table">

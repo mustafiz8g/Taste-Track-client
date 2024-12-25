@@ -5,7 +5,7 @@
 
 
 // const axiosInstance = axios.create({
-//     baseURL: 'https://taste-track-server.vercel.app',
+//     baseURL: 'http://localhost:3800',
 //     withCredentials: true
 // });
 
@@ -47,7 +47,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-    baseURL: 'https://taste-track-server.vercel.app',
+    baseURL: 'http://localhost:3800',
     withCredentials: true
 });
 

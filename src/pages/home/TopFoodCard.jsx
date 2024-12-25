@@ -8,11 +8,11 @@ const TopFoodCard = ({ food }) => {
   
     return (
       <div className="mx-auto bg-white rounded-lg shadow-md overflow-hidden border">      
-        <div className=" flex justify-center ">
+        <div className=" flex justify-center object-cover">
           <img
             src={foodImage}
             alt={foodName}
-            className="  "
+            className="h-full "
           />
         </div>    
         <div className="p-4">

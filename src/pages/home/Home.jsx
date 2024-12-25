@@ -10,9 +10,11 @@ const Home = () => {
         <div >
             <Banner></Banner>
             <TopFood></TopFood>
-            <TitleSubTitle 
+          <div className="w-11/12 mx-auto">
+          <TitleSubTitle 
               title={'Lottery'} 
-              subTitle = {'For the month of victory of our motherland'}></TitleSubTitle>
+              subTitle = {'For the month of victory of our motherland . We arranged a program where you have oportunity to conquor huge .'}></TitleSubTitle>
+          </div>
             <Slider></Slider>
             <Booking></Booking>
         </div>

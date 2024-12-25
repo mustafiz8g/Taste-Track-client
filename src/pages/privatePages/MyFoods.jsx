@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import MyFoodsTable from "./MyFoodsTable";
 // import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import TitleSubTitle from "../shared/TitleSubTitle";
 
 
 
@@ -15,13 +16,8 @@ const MyFoods = () => {
 const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    // fetch(`https://taste-track-server.vercel.app/myFoods?email=${user.email}`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setMyFoods(data)
-    //   })
-
-    // axios.get(`https://taste-track-server.vercel.app/myFoods?email=${user.email}`,{
+   
+    // axios.get(`http://localhost:3800/myFoods?email=${user.email}`,{
     //   withCredentials: true
     // })
     // .then(res => setMyFoods(res.data))
@@ -30,7 +26,7 @@ const axiosSecure = useAxiosSecure();
   .then(res => setMyFoods(res.data))
 
 
-  }, [user.email])
+  }, [user.emai])
 
   // console.log(myFoods)
 
@@ -38,10 +34,10 @@ const axiosSecure = useAxiosSecure();
 
 
   return (
-    <div>
-      <p className="text-center"> Total : {myFoods.length}</p>
+    <div className="w-10/12 mx-auto">
+      <TitleSubTitle title={`my total added item (${myFoods.length})`}></TitleSubTitle>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto ">
         <table className="table">
           {/* head */}
           <thead>

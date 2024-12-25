@@ -39,7 +39,7 @@ const Navbar = () => {
    
 
     return (
-        <div className="z-50 sticky top-0 navBar">
+        <div className="z-50 sticky top-0 navBar  ">
             <div className="w-11/12 mx-auto navbar flex justify-between ">
 
                 <div className="first">
@@ -54,11 +54,11 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-3xl font-bold">TASTE <span className="text-red-600 font-bold">TRACK</span></Link>
+                    <Link to='/' className=" text-3xl font-bold">TASTE <span className="text-red-600 font-bold">TRACK</span></Link>
                 </div>
                 <div>
                     <div className="second hidden md:flex">
-                        <ul className="menu menu-horizontal px-1">
+                        <ul className="menu menu-horizontal  px-1 ">
                             {navOptions}
                         </ul>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
                                             <div className="flex justify-center items-center gap-2">
 
                                                 <div className="w-12 h-12">
-                                                    <img title={user.displayName} className="w-full h-full p-1 object-contain rounded-full border  border-blue-800 border-2 hover:border-green-500" src={user?.photoURL } alt="profile" />
+                                                    <img title={user.displayName} className="w-full h-full  object-contain rounded-full border  border-white border-2 hover:border-orange-400" src={user?.photoURL } alt="profile" />
                                                 </div>
                                             </div>
 

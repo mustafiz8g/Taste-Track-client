@@ -3,6 +3,7 @@
 
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import TitleSubTitle from "../shared/TitleSubTitle";
 
 const AddFoods = () => {
     const { user } = useAuth();
@@ -27,7 +28,7 @@ const AddFoods = () => {
         // console.log(foodData);
 
     //
-        fetch("https://taste-track-server.vercel.app/addFoods", {
+        fetch("http://localhost:3800/addFoods", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -52,11 +53,7 @@ const AddFoods = () => {
         <div className="w-10/12 mx-auto">
             <form onSubmit={handleAddFood} className="max-w-3xl mx-auto shadow-lg rounded-lg p-8 space-y-1">
                 {/* Form Header */}
-                <div className="text-center">
-                    <h2 className="text-3xl font-bold text-gray-800">Add a New Food Item</h2>
-                    <p className="text-gray-600 text-sm mt-1">Fill in the details below to add a new food item to the menu.</p>
-                </div>
-
+              <TitleSubTitle title={'Add a New Food Item'} subTitle={'Fill in the details below to add a new food item to the menu.'}></TitleSubTitle>
                 {/* Food Name */}
                 <div className="form-control">
                     <label className="label">

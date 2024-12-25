@@ -5,7 +5,7 @@
 const Footer = () => {
     return (
       
-          <footer className="footer  text-base-content p-10">
+          <footer className="footer w-11/12 mx-auto bg-gradient-to-b rounded-xl from-orange-100   text-base-content p-10">
         <aside>
           <svg
             width="50"
