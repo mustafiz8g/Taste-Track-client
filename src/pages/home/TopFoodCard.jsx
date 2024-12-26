@@ -7,7 +7,7 @@ const TopFoodCard = ({ food }) => {
     const {_id, foodName, foodImage, quantity, price } = food;
   
     return (
-      <div className="mx-auto bg-white rounded-lg shadow-md overflow-hidden border">      
+      <div className="mx-auto  rounded-lg shadow-md overflow-hidden border">      
         <div className=" flex justify-center object-cover">
           <img
             src={foodImage}

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
       
-          <footer className="footer w-11/12 mx-auto bg-gradient-to-b rounded-xl from-orange-100   text-base-content p-10">
+          <footer className="mt-12 footer w-11/12 mx-auto bg-gradient-to-t rounded-xl from-orange-100   text-base-content p-14">
         <aside>
         <Link to='/' className=" text-3xl font-bold">TASTE <span className="text-red-600 font-bold">TRACK</span></Link>
           <p>

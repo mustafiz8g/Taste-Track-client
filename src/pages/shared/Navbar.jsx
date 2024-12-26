@@ -3,6 +3,7 @@ import { FaBars } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import './navBar.css'
+import ThemeToggle from "../../ThemeToggle";
 
 const Navbar = () => {
     const { user, logOutUser } = useAuth();
@@ -13,6 +14,7 @@ const Navbar = () => {
 
 
     const navOptions = < >
+        <li><ThemeToggle></ThemeToggle></li>
         <li><NavLink className='font-bold text-base' to='/'>Home</NavLink></li>
         <li><NavLink className='font-bold text-base' to='/allFoods'>All Foods</NavLink></li>
         <li><NavLink className='font-bold text-base' to='/gallery'>Gallery</NavLink></li>
@@ -33,6 +35,7 @@ const Navbar = () => {
         <li><NavLink className='font-bold text-base' to='/myFoods'>My Foods</NavLink></li>
         <li><NavLink className='font-bold text-base' to='/addFoods'>Add Foods</NavLink></li>
         <li><NavLink className='font-bold text-base' to='/myOrders'>My Orders</NavLink></li>
+        
         <li><button className="  font-bold" onClick={handleLogOut}>Log Out</button> </li>
     </>
 
