@@ -11,20 +11,20 @@ const SocialLogin = () => {
     const { loginWithGoogle } = useAuth();
     const location = useLocation();
     const navigate = useNavigate()
-    const from = location.state || '/';
+    const from = location.state?.from?.pathname || '/';
     const handler = () => {
         loginWithGoogle()
             .then(result => {
-                // console.log('Login with socai', result.user)
+                console.log('Login with socai', result.user)
                 Swal.fire({
                     title: "Login Successful with Google",
                     icon: "success"
                 });
-                navigate(from)
+                navigate(from, {replace: true})
 
             })
             .catch(err => {
-                // console.log('Error', err.message)
+                console.log(err)
             })
     }
    

@@ -20,12 +20,12 @@ const AuthProvider = ({children}) => {
      }
      const loginWithGoogle = () => {
         setLoading(true)
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
      }
      // forget password 
      const forgetPassword = (email) => {
          setLoading(true)
-         sendPasswordResetEmail(auth, email)
+        return sendPasswordResetEmail(auth, email)
         }
         //Update User 
         const updateUser = (updatedData) => {
@@ -47,7 +47,7 @@ const AuthProvider = ({children}) => {
             if(currentUser?.email){
                 const user = { email: currentUser.email };
 
-                axios.post('http://localhost:3800/jwt', user , { withCredentials: true })
+                axios.post('https://taste-track-server.vercel.app/jwt', user , { withCredentials: true })
                 .then(res =>{
                     
                     console.log('login ',res.data)
@@ -55,7 +55,7 @@ const AuthProvider = ({children}) => {
                 } )
             }
             else{
-                axios.post('http://localhost:3800/logout', {}, {
+                axios.post('https://taste-track-server.vercel.app/logout', {}, {
                     withCredentials: true
                 })
                 .then(res => {

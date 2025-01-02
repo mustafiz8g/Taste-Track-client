@@ -21,7 +21,6 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement: <h2>Route no found</h2>,
         children: [
             {
                 path: '/',
@@ -30,12 +29,12 @@ const router = createBrowserRouter([
             {
                 path: '/allFoods',
                 element: <AllFoodes></AllFoodes>,
-                loader: () => fetch('http://localhost:3800/allFoods')
+                loader: () => fetch('https://taste-track-server.vercel.app/allFoods')
             },
             {
                 path: '/allFoods/:id',
                 element: <Details></Details>,
-                loader : ({params}) => fetch(`http://localhost:3800/allFoods/${params.id}`)
+                loader : ({params}) => fetch(`https://taste-track-server.vercel.app/allFoods/${params.id}`)
             }
             ,
             {
@@ -61,7 +60,7 @@ const router = createBrowserRouter([
             {
                 path: '/myFoods/:id',
                 element:<PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-                loader : ({params}) => fetch(`http://localhost:3800/allFoods/${params.id}`)
+                loader : ({params}) => fetch(`https://taste-track-server.vercel.app/allFoods/${params.id}`)
 
 
             },

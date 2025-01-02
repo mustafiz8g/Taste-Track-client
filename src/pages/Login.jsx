@@ -65,7 +65,7 @@ const Login = () => {
 
 
                 // const user = { email: email }
-                // axios.post('http://localhost:3800/jwt', user, { withCredentials: true })
+                // axios.post('https://taste-track-server.vercel.app/jwt', user, { withCredentials: true })
                 // .then(res => {
                 //     console.log(res.data)
                 // })

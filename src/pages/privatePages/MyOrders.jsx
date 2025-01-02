@@ -13,7 +13,7 @@ const MyOrders = () => {
 
 
       useEffect( () => {
-            fetch(`http://localhost:3800/myOrders?email=${user.email}`)
+            fetch(`https://taste-track-server.vercel.app/myOrders?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setPurchase(data)
