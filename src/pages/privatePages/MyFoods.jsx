@@ -5,6 +5,7 @@ import MyFoodsTable from "./MyFoodsTable";
 // import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import TitleSubTitle from "../shared/TitleSubTitle";
+import { Link } from "react-router-dom";
 
 
 
@@ -34,10 +35,21 @@ const axiosSecure = useAxiosSecure();
 
 
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-10/12 mx-auto h-[500px]">
       <TitleSubTitle title={`my total added item (${myFoods.length})`}></TitleSubTitle>
 
-      <div className="overflow-x-auto ">
+      {
+        myFoods.length === 0 ? <>
+        
+        <h3 className="text-2xl text-red-600 font-medium"> You did not add food yet</h3>
+        <Link className=" col-span-1 md:col-span-2 lg:col-span-3" to={`/addFoods`}>
+                        <div className="bg-orange-500 w-[300px] mt-4 rounded-lg hover:bg-orange-600 text-white font-semibold py-3 text-center text-lg cursor-pointer">
+                            Add Food
+                        </div>
+                    </Link>
+        </> :
+
+        <div className="overflow-x-auto ">
         <table className="table">
           {/* head */}
           <thead>
@@ -69,6 +81,7 @@ const axiosSecure = useAxiosSecure();
 
         </table>
       </div>
+      }
 
     </div>
   );

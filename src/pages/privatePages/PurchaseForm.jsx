@@ -85,12 +85,13 @@ const PurchaseForm = () => {
 
     return (
         <div className="container mx-auto p-4 md:p-8">
-            <div className="max-w-2xl mx-auto  shadow-md rounded-lg p-6">
-                <h1 className="text-2xl font-bold text-gray-800 mb-6">Purchase Food</h1>
-                <form onSubmit={handleSubmit} className="space-y-4">
-
+            <div className="max-w-2xl mx-auto  shadow-md rounded-lg p-2">
+               
+                <h1 className="text-4xl text-center font-bold  mb-6">Fill This Form </h1>
+                <form onSubmit={handleSubmit} className="space-y-4 border p-8 rounded-xl">
+                <img className="w-full" src={food.foodImage} alt="" />
                     <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium ">
                             Food Name
                         </label>
                         <input
@@ -104,7 +105,7 @@ const PurchaseForm = () => {
 
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium ">
                             Price
                         </label>
                         <input
@@ -118,7 +119,7 @@ const PurchaseForm = () => {
 
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium ">
                            Purchase Quantity (between 1 and 20)
                         </label>
                         <input
@@ -136,7 +137,7 @@ const PurchaseForm = () => {
 
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium ">
                             Buyer Name
                         </label>
                         <input
@@ -150,7 +151,7 @@ const PurchaseForm = () => {
 
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium ">
                             Buyer Email
                         </label>
                         <input
@@ -164,7 +165,7 @@ const PurchaseForm = () => {
 
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-600">
+                        <label className="block text-sm font-medium ">
                             Buying Time
                         </label>
                         <input
