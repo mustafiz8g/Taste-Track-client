@@ -16,8 +16,8 @@ const TopFoodCard = ({ food }) => {
           />
         </div>    
         <div className="p-4">
-          <h2 className="text-lg font-bold text-gray-800 text-center">{foodName}</h2>   
-          <p className="text-gray-600 text-center text-sm mt-2">
+          <h2 className="text-lg font-bold  text-center">{foodName}</h2>   
+          <p className=" text-center text-sm mt-2">
             Stock : {quantity}
           </p>
           <p className="text-center text-orange-500 text-lg font-semibold mt-4">${price}</p>

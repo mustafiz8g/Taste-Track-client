@@ -19,7 +19,7 @@ const Details = () => {
     return (
         <div className="container mx-auto p-4 md:p-8">
             {/* Details Card */}
-            <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
+            <div className="max-w-4xl mx-auto  shadow-xl rounded-lg overflow-hidden">
                 {/* Food Image */}
                 <div className="relative">
                     <img
@@ -36,7 +36,7 @@ const Details = () => {
                 <div className="p-6 sm:p-8">
                     {/* Title and Price */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-                        <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 sm:mb-0">
+                        <h1 className="text-2xl md:text-3xl font-bold mb-4 sm:mb-0">
                             {foodName}
                         </h1>
                         <span className="text-xl md:text-2xl font-semibold text-orange-500">
@@ -45,23 +45,23 @@ const Details = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 leading-relaxed mb-6 text-justify">
+                    <p className=" leading-relaxed mb-6 text-justify">
                         {description}
                     </p>
 
                     {/* Additional Information */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-gray-500 font-semibold uppercase">
+                            <h3 className="text-sm  font-semibold uppercase">
                                 Category
                             </h3>
-                            <p className="text-gray-800">{foodCategory}</p>
+                            <p className="">{foodCategory}</p>
                         </div>
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-gray-500 font-semibold uppercase">
+                            <h3 className="text-sm  font-semibold uppercase">
                                 Available Quantity
                             </h3>
-                            <p className="text-gray-800">{
+                            <p className="">{
                                 quantity < 1
                                     ?
                                     <p className="text-error">item is not available right now</p>
@@ -69,38 +69,38 @@ const Details = () => {
                             }</p>
                         </div>
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-gray-500 font-semibold uppercase">
+                            <h3 className="text-sm  font-semibold uppercase">
                                 Total Sold
                             </h3>
-                            <p className="text-gray-800">{totalSold}</p>
+                            <p className="">{totalSold}</p>
                         </div>
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-gray-500 font-semibold uppercase">
+                            <h3 className="text-sm  font-semibold uppercase">
                                 Added By
                             </h3>
-                            <p className="text-gray-800">{addedByName}</p>
+                            <p className="">{addedByName}</p>
                         </div>
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-gray-500 font-semibold uppercase">
+                            <h3 className="text-sm  font-semibold uppercase">
                                 Email
                             </h3>
-                            <p className="text-gray-800">{addedByEmail}</p>
+                            <p className="">{addedByEmail}</p>
                         </div>
                         <div className="flex flex-col sm:col-span-2">
-                            <h3 className="text-sm text-gray-500 font-semibold uppercase">
+                            <h3 className="text-sm  font-semibold uppercase">
                                 Food Origin
                             </h3>
-                            <p className="text-gray-800">{foodOrigin}</p>
+                            <p className="">{foodOrigin}</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Buttons */}
-                <div className="flex  flex-col text-center sm:flex-row gap-4 p-6 bg-gray-100 border-t">
+                <div className="flex  flex-col text-center sm:flex-row gap-4 p-6  border-t">
                     <Link
                         className={`
                        flex-1 sm:w-auto 
-                       ${quantity < 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' :                       'bg-gradient-to-r from-green-400 to-teal-500 text-white                       hover:shadow-lg'} 
+                       ${quantity < 1 ? '  cursor-not-allowed' :                       'bg-gradient-to-r from-green-400 to-teal-500 text-white                       hover:shadow-lg'} 
                        font-semibold px-6 py-3 rounded-lg shadow-md transition-shadow                       duration-300
                      `}
                         to={quantity < 1 ? '#' : `/foodPurchase/${_id}`}

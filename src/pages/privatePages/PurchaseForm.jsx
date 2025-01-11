@@ -85,7 +85,7 @@ const PurchaseForm = () => {
 
     return (
         <div className="container mx-auto p-4 md:p-8">
-            <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
+            <div className="max-w-2xl mx-auto  shadow-md rounded-lg p-6">
                 <h1 className="text-2xl font-bold text-gray-800 mb-6">Purchase Food</h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -144,7 +144,7 @@ const PurchaseForm = () => {
                             name="buyerName"
                             value={user.displayName}
                             readOnly
-                            className="w-full mt-1 px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
+                            className="w-full mt-1 px-4 py-2  border border-gray-300 rounded-md shadow-sm"
                         />
                     </div>
 
@@ -158,7 +158,7 @@ const PurchaseForm = () => {
                             name="buyerEmail"
                             value={user.email}
                             readOnly
-                            className="w-full mt-1 px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
+                            className="w-full mt-1 px-4 py-2  border border-gray-300 rounded-md shadow-sm"
                         />
                     </div>
 
@@ -172,7 +172,7 @@ const PurchaseForm = () => {
                             name="buyingTime"
                             value={currentTime}
                             readOnly
-                            className="w-full mt-1 px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm"
+                            className="w-full mt-1 px-4 py-2  border border-gray-300 rounded-md shadow-sm"
                         />
                     </div>
 

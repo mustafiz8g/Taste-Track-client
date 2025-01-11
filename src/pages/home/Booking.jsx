@@ -25,7 +25,8 @@ const Booking = () => {
                 When would you like to book?
               </label>
               <input
-                type="date"
+                type="date" 
+                required
                 className="border border-gray-300 rounded-md p-2 focus:ring-yellow-500 focus:border-yellow-500"
               />
             </div>
@@ -64,6 +65,7 @@ const Booking = () => {
               <input
                 type="email"
                 placeholder="Your Email"
+                required
                 className="border border-gray-300 rounded-md p-2 focus:ring-yellow-500 focus:border-yellow-500"
               />
             </div>
@@ -72,6 +74,7 @@ const Booking = () => {
               <input
                 type="tel"
                 placeholder="Your Phone Number"
+                required
                 className="border border-gray-300 rounded-md p-2 focus:ring-yellow-500 focus:border-yellow-500"
               />
             </div>
@@ -79,6 +82,7 @@ const Booking = () => {
           </div>
           <button
             type="submit"
+            required
             className="btn btn-accent text-lg mt-6 btn-sm w-full btn-outline"
           >
             Book My Table

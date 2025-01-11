@@ -57,7 +57,7 @@ const AddFoods = () => {
                 {/* Food Name */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Food Name</span>
+                        <span className="label-text  font-semibold">Food Name</span>
                     </label>
                     <input
                         name="foodName"
@@ -71,7 +71,7 @@ const AddFoods = () => {
                 {/* Food Image */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Food Image URL</span>
+                        <span className="label-text  font-semibold">Food Image URL</span>
                     </label>
                     <input
                         name="foodImage"
@@ -85,7 +85,7 @@ const AddFoods = () => {
                 {/* Food Category */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Food Category</span>
+                        <span className="label-text  font-semibold">Food Category</span>
                     </label>
                     <select
                         name="foodCategory"
@@ -104,7 +104,7 @@ const AddFoods = () => {
                 {/* Extra sold */}
                 {/* <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Total Sold</span>
+                        <span className="label-text  font-semibold">Total Sold</span>
                     </label>
                     <input
                         name="totalSold"
@@ -120,7 +120,7 @@ const AddFoods = () => {
                 {/* Quantity  */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Stock</span>
+                        <span className="label-text  font-semibold">Stock</span>
                     </label>
                     <input
                         name="quantity"
@@ -136,7 +136,7 @@ const AddFoods = () => {
                 {/* Price */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Price</span>
+                        <span className="label-text  font-semibold">Price</span>
                     </label>
                     <input
                         name="price"
@@ -178,7 +178,7 @@ const AddFoods = () => {
                 {/* Food Origin */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Food Origin</span>
+                        <span className="label-text  font-semibold">Food Origin</span>
                     </label>
                     <input
                         name="foodOrigin"
@@ -192,7 +192,7 @@ const AddFoods = () => {
                 {/* Description */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-gray-700 font-semibold">Description</span>
+                        <span className="label-text  font-semibold">Description</span>
                     </label>
                     <textarea
                         name="description"

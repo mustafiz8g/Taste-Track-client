@@ -14,10 +14,11 @@ const Navbar = () => {
 
 
     const navOptions = < >
-        <li><ThemeToggle></ThemeToggle></li>
-        <li><NavLink className='font-bold text-base' to='/'>Home</NavLink></li>
-        <li><NavLink className='font-bold text-base' to='/allFoods'>All Foods</NavLink></li>
-        <li><NavLink className='font-bold text-base' to='/gallery'>Gallery</NavLink></li>
+        <li ><ThemeToggle></ThemeToggle></li>
+        <li><NavLink className='font-bold ' to='/'>Home</NavLink></li>
+        <li><NavLink className='font-bold ' to='/allFoods'>All Foods</NavLink></li>
+        <li><NavLink className='font-bold ' to='/gallery'>Gallery</NavLink></li>
+        <li><NavLink className='font-bold ' to='/reservation'>Resevation</NavLink></li>
     </>
 
      const handleLogOut = () => {
@@ -32,9 +33,9 @@ const Navbar = () => {
     }
 
     const navOptions2 = <>
-        <li><NavLink className='font-bold text-base' to='/myFoods'>My Foods</NavLink></li>
-        <li><NavLink className='font-bold text-base' to='/addFoods'>Add Foods</NavLink></li>
-        <li><NavLink className='font-bold text-base' to='/myOrders'>My Orders</NavLink></li>
+        <li><NavLink className='font-bold ' to='/myFoods'>My Foods</NavLink></li>
+        <li><NavLink className='font-bold' to='/addFoods'>Add Foods</NavLink></li>
+        <li><NavLink className='font-bold ' to='/myOrders'>My Orders</NavLink></li>
         
         <li><button className="  font-bold" onClick={handleLogOut}>Log Out</button> </li>
     </>

@@ -14,6 +14,7 @@ import Details from "../pages/Details";
 import PurchaseForm from "../pages/privatePages/PurchaseForm";
 import UpdateFood from "../pages/privatePages/UpdateFood";
 import Error from "../pages/Error";
+import Booking from "../pages/home/Booking";
 
 
 
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
                 path: '/gallery',
                 element: <Gallery></Gallery>
             },
+            {
+                path: '/reservation',
+                element: <Booking></Booking>
+            }
+            ,
 
 
             {

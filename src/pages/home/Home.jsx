@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import TitleSubTitle from "../shared/TitleSubTitle";
 import Booking from "./Booking";
 import TopFood from "./TopFood";
+import Faq from "./Faq";
 
 
 const Home = () => {
@@ -17,6 +18,9 @@ const Home = () => {
           </div>
             <Slider></Slider>
             <Booking></Booking>
+            <div className="w-11/12 mx-auto">
+            <Faq></Faq>
+            </div>
         </div>
     );
 };
