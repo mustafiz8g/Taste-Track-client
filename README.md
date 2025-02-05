@@ -65,7 +65,7 @@
 ## ⚙️ Installation & Setup
 
 ### **1️⃣ Clone the Repository**
-```bash
+
 git clone https://github.com/yourusername/restaurant-client.git
 git clone https://github.com/yourusername/restaurant-server.git
 2️⃣ Install Dependencies
