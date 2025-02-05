@@ -66,8 +66,8 @@
 
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/real-estate-client.git
-git clone https://github.com/yourusername/real-estate-server.git
+git clone https://github.com/yourusername/taste-tracke-client.git
+git clone https://github.com/yourusername/taste-tracke-server.git
 ```
 
 ### **2️⃣ Install Dependencies**
@@ -91,19 +91,19 @@ git clone https://github.com/yourusername/real-estate-server.git
     "swiper": "^11.2.1"
 #### Frontend:
 ```bash
-cd real-estate-client
+cd taste-tracke-client
 npm install
 ```
 #### Backend:
 ```bash
-cd real-estate-server
+cd taste-tracke-server
 npm install
 ```
 
 ### **3️⃣ Configure Environment Variables**
 Create a `.env` file in both **client** and **server** directories with the required API keys.
 
-#### **Frontend (`real-estate-client/.env`)**
+#### **Frontend (`taste-tracke-client/.env`)**
 ```plaintext
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
@@ -114,14 +114,11 @@ VITE_FIREBASE_APP_ID=your_firebase_app_id
 VITE_BACKEND_URL=http://localhost:5000
 ```
 
-#### **Backend (`real-estate-server/.env`)**
+#### **Backend (`taste-tracke-server/.env`)**
 ```plaintext
 MONGO_URI=your_mongodb_connection_uri
 JWT_SECRET=your_jwt_secret
-STRIPE_SECRET_KEY=your_stripe_secret_key
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
 ```
 
 ### **4️⃣ Start the Development Servers**
@@ -134,10 +131,4 @@ npm run dev
 npm run start
 ```
 
----
 
-## 🖼️ Project Screenshots
-
-_Add screenshots here to showcase UI and features._
-
----
