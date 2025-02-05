@@ -64,7 +64,7 @@
 
 ## ⚙️ Installation & Setup
 
-### **1️⃣ Clone the Repository**
+### 1️⃣ Clone the Repository
 
 git clone https://github.com/yourusername/restaurant-client.git
 git clone https://github.com/yourusername/restaurant-server.git
