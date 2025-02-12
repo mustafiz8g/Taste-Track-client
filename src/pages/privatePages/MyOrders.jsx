@@ -26,7 +26,7 @@ const MyOrders = () => {
 
         
     return (
-        <div className="w-10/12 mx-auto h-[500px]">
+        <div className="w-10/12 mx-auto min-h-[500px]">
            <TitleSubTitle title={`my all purchased item (${purchases.length})`}></TitleSubTitle>
 
            {

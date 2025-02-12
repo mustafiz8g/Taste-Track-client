@@ -130,7 +130,7 @@ const Login = () => {
 
 
     return (
-        <div className="w-10/12 mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
+        <div className="w-10/12 min-h-[500px] mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
 
             <div>
             <form onSubmit={handleLogin} className="w-[340px]">

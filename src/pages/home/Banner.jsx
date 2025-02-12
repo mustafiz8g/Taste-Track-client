@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div className='
         
-         bg-no-repeat bg-fixed bg-cover h-[600px] bottom-[74px] relative flex flex-col items-center justify-center *:text-white space-y-3 *:text-center' 
+         bg-no-repeat  bg-cover h-[620px] relative flex flex-col items-center justify-center *:text-white space-y-3 *:text-center' 
         style={{
             backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.7259278711484594) 61%, rgba(0,0,0,0) 96%), url(${banner})`, // Add your banner image URL here
           }}>

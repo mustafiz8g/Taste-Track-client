@@ -35,7 +35,7 @@ const axiosSecure = useAxiosSecure();
 
 
   return (
-    <div className="w-10/12 mx-auto h-[500px]">
+    <div className="w-10/12 mx-auto min-h-[500px]">
       <TitleSubTitle title={`my total added item (${myFoods.length})`}></TitleSubTitle>
 
       {
